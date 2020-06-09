@@ -1,0 +1,16 @@
+.main-page {
+    &__grid {
+        height: calc(100% - 64px);
+    }
+    &__button-wraper {
+        text-align: center;
+    }
+    &__stopwatch {
+        margin: 1em;
+        font-size: larger;
+    }
+    &__text-wraper  {
+        overflow-y: auto;
+        height: 100%;
+    }
+}

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Стенограмма</h1>
+<div mat-dialog-content>
+    <mat-form-field class="transcript-modal__transcript">
+        <textarea matTextareaAutosize matInput [(ngModel)]="transcript"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">Закрыть</button>
+    <button mat-button color="primary" mat-raised-button [mat-dialog-close]="transcript">
+        Сохранить изменения
+    </button>
+</div>

@@ -1,0 +1,22 @@
+<mat-grid-list class="main-page__grid" cols="1" rowHeight="fit">
+    <mat-grid-tile>
+        <div class="main-page__button-wraper">
+            <button mat-mini-fab color="warn"
+                matTooltip="{{ recordingInProgress ? 'Остановить запись' : 'Начать запись' }}"
+                (click)="onRecordButtonClick()">
+                <mat-icon>{{ recordingInProgress ? 'stop' : 'fiber_manual_record' }}</mat-icon>
+            </button>
+            <div class="main-page__stopwatch">
+                {{ getStopWatchString(stopWatchService.elapsedTime | async) }}
+            </div>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <audio-visualizer [analyserNode]="analyser"></audio-visualizer>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]="2">
+        <div class="main-page__text-wraper">
+            {{text}}
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

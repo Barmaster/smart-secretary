@@ -1,0 +1,8 @@
+.transcript-modal {
+    &__transcript {
+        width: 100%;
+        ::ng-deep textarea {
+            overflow-y: hidden;
+        }
+    }
+}

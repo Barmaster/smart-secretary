@@ -1,0 +1,6 @@
+<div class="audio-visualizer__wrapper"
+    *ngFor="let freq of frequencies;"
+    [style.height.px]="freq*freq/512"
+    [style.visibility]="freq*freq/512 > 5 ? 'visible' : 'hidden'"
+    [style.opacity]="freq/100 > 0.2 ? freq/100 : 0.2">
+</div>

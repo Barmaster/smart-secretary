@@ -1,0 +1,38 @@
+<mat-card class="meetings-page__note">
+    Завершенные совещания, для которых возможна корректировка стенограммы и исходного аудиофайла.
+</mat-card>
+
+<table mat-table [dataSource]="dataSource" class="meetings-page__table">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let meeting"> {{meeting.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="agenda">
+        <th mat-header-cell *matHeaderCellDef>Тема</th>
+        <td mat-cell *matCellDef="let meeting"> {{meeting.agenda}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Дата</th>
+        <td mat-cell *matCellDef="let meeting"> {{meeting.date | date: 'EEEE, MMMM d, y'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="audio">
+        <th mat-header-cell *matHeaderCellDef>Аудио</th>
+        <td mat-cell *matCellDef="let meeting">
+            <audio controls [src]="meeting.audio"></audio>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Стенограмма</th>
+        <td mat-cell *matCellDef="let meeting">
+            <button mat-raised-button (click)="openDialog(meeting)">Просмотреть</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
